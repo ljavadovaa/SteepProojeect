@@ -92,7 +92,7 @@ public class BookingService {
     return String.format("BOOKING ID: %d , PERSON{ %s } , FLIGHT{ %s }", booking.getBookingId(), booking.getPerson().toString(), booking.getFlight().toString());
   }
 
-  public void book(int tickets, Flight filteredFlight) {
+  public void book(int tickets, Flight flight) {
     List<Booking> bookings = new ArrayList<>(getAll());
     Booking lastBooking = getID(bookings.size()-1);
     int lastIndex = lastBooking.getBookingId();
@@ -100,7 +100,7 @@ public class BookingService {
     for (int i = 1; i <= tickets; i++) {
       console.printLn("      ===== NEW BOOKING =====\n");
       lastIndex++;
-      Booking b = createBooking(lastIndex, filteredFlight);
+      Booking b = createBooking(lastIndex, flight);
       bookings.add(b);
     }
 

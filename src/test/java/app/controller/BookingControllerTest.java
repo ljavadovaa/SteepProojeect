@@ -19,19 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingControllerTest {
   ConsoleMain console;
   BookingController bookingController;
+  FlightController flightController;
 
   @BeforeEach
   void setUp() {
     console = new ConsoleMain();
     bookingController = new BookingController();
-  }
-
-  @Test
-  void cancelBooking() {
-  }
-
-  @Test
-  void myFlights() {
+    flightController = new FlightController();
   }
 
   @Test
@@ -88,30 +82,20 @@ class BookingControllerTest {
   }
 
   @Test
-  void writeToFile() {
-  }
-
-  @Test
   void check_space() {
-  }
-
-  @Test
-  void testCancelBooking() {
-  }
-
-  @Test
-  void resizeFreeSeat() {
+    boolean expected = false;
+    boolean actual = bookingController.check_space(new File("src/main/java/app/database/Flights.txt"));
+    assertEquals(expected,actual);
   }
 
   @Test
   void represent() {
+    Booking booking = new Booking(1272,new Person("Emin","Fil"),
+            new Flight(50,"Kiev","Ganja","18/03/2020",30,30));
+    String expected = "BOOKING ID: 1272 , PERSON{ Emin Fil } , FLIGHT{ ID: 50 | Kiev to Ganja | 18/03/2020 | maxSeats: 30 }";
+    String actual = bookingController.represent(booking);
+    assertEquals(expected,actual);
   }
 
-  @Test
-  void book() {
-  }
 
-  @Test
-  void getAllBookings() {
-  }
 }

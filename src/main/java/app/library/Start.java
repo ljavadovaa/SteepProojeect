@@ -30,6 +30,11 @@ public class Start {
 
         switch (enterNumber.enter_number()) {
           case 1:
+            StringBuilder sb = new StringBuilder();
+            sb.append("                   -------------------------------------------------------------------\n");
+            sb.append("                   |                   FLIGHTS IN LAST 24 HOURS                      |\n");
+            sb.append("                   -------------------------------------------------------------------\n");
+            console.printLn(sb.toString());
             console.printLn(flightController.showBoard());
             break;
 

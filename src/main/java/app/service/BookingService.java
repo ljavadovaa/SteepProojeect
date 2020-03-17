@@ -49,11 +49,6 @@ public class BookingService {
   public void cancelBooking(int id) {
     List<Booking> bookings = new ArrayList<>(bookingDAO.getAll());
     StringBuilder sb = new StringBuilder();
-//    List<Booking> collect = bookings.stream().filter(booking -> booking.getBookingId() != id).collect(Collectors.toList());
-//    collect.forEach(booking -> sb.append(represent(booking)).append("\n"));
-//    writeToFile(sb.toString());
-//    console.printLn("\n");
-
     bookings.forEach(b -> {
       if (b.getBookingId() != id) {
         sb.append(b.toString());
@@ -99,7 +94,7 @@ public class BookingService {
 
   public void book(int tickets, Flight filteredFlight) {
     List<Booking> bookings = new ArrayList<>(getAll());
-    Booking lastBooking = getID(bookings.size());
+    Booking lastBooking = getID(bookings.size()-1);
     int lastIndex = lastBooking.getBookingId();
 
     for (int i = 1; i <= tickets; i++) {

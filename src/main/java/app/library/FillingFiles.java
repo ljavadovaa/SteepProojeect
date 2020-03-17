@@ -13,25 +13,9 @@ import java.util.stream.IntStream;
 public class FillingFiles {
   Random random = new Random();
   public void fillFlights(){
-    Map<String, Integer> Cities_seats = new HashMap<>();
     FlightService flightService = new FlightService();
-    Cities_seats.put("Baku", 30);
-    Cities_seats.put("London", 20);
-    Cities_seats.put("Paris", 25);
-    Cities_seats.put("Moscow", 30);
-    Cities_seats.put("Berlin", 45);
-    Cities_seats.put("Barcelona", 35);
-    Cities_seats.put("Istanbul", 40);
-    Cities_seats.put("Madrid", 30);
-    Cities_seats.put("Chicago", 50);
-    Cities_seats.put("Roma", 35);
-    Cities_seats.put("Vienna", 45);
-    Cities_seats.put("Porto", 30);
-    Cities_seats.put("Helsinki", 25);
-    Cities_seats.put("Sydney", 50);
-    Cities_seats.put("Beijing", 35);
+    List<Airport> airports = Arrays.asList(Airport.values());
     StringBuilder sb = new StringBuilder();
-    ArrayList<String> cities = new ArrayList<>(Cities_seats.keySet());
 
     IntStream.range(0, 50).forEach(i -> {
       int freeSeat = (random.nextInt(10) + 5);
@@ -39,14 +23,14 @@ public class FillingFiles {
       sb.append(",");
       sb.append("Kiev");
       sb.append(",");
-      String city = cities.get(random.nextInt(15));
+      String city = airports.get(random.nextInt(15)).toString();
       sb.append(city);
       sb.append(",");
       sb.append(MakeTime());
       sb.append(",");
       sb.append(freeSeat);
       sb.append(",");
-      sb.append(Cities_seats.get(city));
+      sb.append(Airport.valueOf(city).seats);
       sb.append("\n");
     });
     File file = new File("src/main/java/app/database/Flights.txt");

@@ -1,3 +1,4 @@
+BOOKING ID: 1 , PERSON{ Jack Linen } , FLIGHT{ID: 1 | Kiev to London | 2020/03/15 | maxSeats: 20 }
 BOOKING ID: 2 , PERSON{ Jack Linen } , FLIGHT{ID: 1 | Kiev to London | 2020/03/15 | maxSeats: 20 }
 BOOKING ID: 3 , PERSON{ Poppy Linen } , FLIGHT{ID: 1 | Kiev to London | 2020/03/15 | maxSeats: 20 }
 BOOKING ID: 4 , PERSON{ Thomas Edwards } , FLIGHT{ID: 1 | Kiev to London | 2020/03/15 | maxSeats: 20 }
@@ -1262,4 +1263,5 @@ BOOKING ID: 1262 , PERSON{ George Williams } , FLIGHT{ID: 50 | Kiev to Barcelona
 BOOKING ID: 1263 , PERSON{ Jacob Edwards } , FLIGHT{ID: 50 | Kiev to Barcelona | 2020/03/13 | maxSeats: 35 }
 BOOKING ID: 1264 , PERSON{ Poppy Walker } , FLIGHT{ID: 50 | Kiev to Barcelona | 2020/03/13 | maxSeats: 35 }
 BOOKING ID: 1265 , PERSON{ Oscar Robinson } , FLIGHT{ID: 50 | Kiev to Barcelona | 2020/03/13 | maxSeats: 35 }
-BOOKING ID: 1266 , PERSON{ Lily White } , FLIGHT{ID: 50 | Kiev to Barcelona | 2020/03/13 | maxSeats: 35 }
+BOOKING ID: 1265 , PERSON{ Emin Fil } , FLIGHT{ID: 47 | Kiev to Vienna | 20/03/2020 | maxSeats: 45 }
+BOOKING ID: 1266 , PERSON{ Emin Fill } , FLIGHT{ID: 47 | Kiev to Vienna | 20/03/2020 | maxSeats: 45 }

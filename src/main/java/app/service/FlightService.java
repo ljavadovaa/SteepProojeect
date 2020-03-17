@@ -30,9 +30,6 @@ public class FlightService {
   public String printToBoardAll() {
     List<Flight> flights = new ArrayList<>(getAll());
     StringBuilder sb = new StringBuilder();
-    sb.append("                   -------------------------------------------------------------------\n");
-    sb.append("                   |                   FLIGHTS IN LAST 24 HOURS                      |\n");
-    sb.append("                   -------------------------------------------------------------------\n");
     flights.stream().filter(f -> after24hours(f.getTime())).forEachOrdered(f -> sb.append(represent(f)).append("\n"));
     return sb.toString();
   }

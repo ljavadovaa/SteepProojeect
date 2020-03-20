@@ -48,7 +48,7 @@ public class FlightService {
     LocalDateTime dateTime = LocalDateTime.parse(a, formatter);
     LocalDateTime now = LocalDateTime.now();
     LocalDateTime d1 = now.plusDays(1);
-    return d1.isAfter(dateTime);
+    return d1.isBefore(dateTime);
   }
 
   public void writeToFile(String s) {

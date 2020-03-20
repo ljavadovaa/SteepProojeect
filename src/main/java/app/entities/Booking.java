@@ -1,5 +1,7 @@
 package app.entities;
 
+import java.util.Objects;
+
 public class Booking {
     private int bookingId;
     private Person person;
@@ -16,6 +18,21 @@ public class Booking {
 
   public void setFlight(Flight flight) {
     this.flight = flight;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Booking booking = (Booking) o;
+    return bookingId == booking.bookingId &&
+            person.equals(booking.person) &&
+            flight.equals(booking.flight);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(bookingId, person, flight);
   }
 
   @Override

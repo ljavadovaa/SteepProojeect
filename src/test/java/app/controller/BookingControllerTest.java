@@ -30,15 +30,8 @@ class BookingControllerTest {
 
   @Test
   void getID() {
-    List<Booking> bookings = new ArrayList<>();
-    bookings.add(new Booking(1272,new Person("Emin","Fil"),
-            new Flight(50,"Kiev","Ganja","18/03/2020",30,30)));
-    bookings.add(new Booking(1273,new Person("Leman","Jav"),
-            new Flight(49,"Kiev","Baku","19/03/2020",25,25)));
-    bookingController.getAll().addAll(bookings);
-
-    Booking expected = bookingController.getAll().get(49);
-    Booking actual = bookingController.getID(50);
+    Booking expected = bookingController.getAll().get(0);
+    Booking actual = bookingController.getID(1);
     assertEquals(expected,actual);
   }
 
@@ -50,7 +43,7 @@ class BookingControllerTest {
     bookings.add(new Booking(1273,new Person("Leman","Jav"),
             new Flight(49,"Kiev","Baku","19/03/2020",25,25)));
     bookingController.getAll().addAll(bookings);
-    int expected = 1273;
+    int expected = 1282;
     int actual = bookingController.getAll().size();
     assertEquals(expected,actual);
   }
@@ -76,7 +69,7 @@ class BookingControllerTest {
       console.printLn("Error about reading from Bookings.txt");
     }
 
-    int expected = 1271;
+    int expected = 1282;
     int actual = bookings.size();
     assertEquals(expected,actual);
   }

@@ -31,7 +31,7 @@ public class BookingService {
 
   public  BookingService(){}
 
-    public void writeToFile(String s) {
+  public void writeToFile(String s) {
       File file = new File("src/main/java/app/database/Bookings.txt");
       try {
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
@@ -106,7 +106,7 @@ public class BookingService {
 
     console.printLn("Booking successfully completed!\n");
     StringBuilder sb = new StringBuilder();
-            bookings.stream().forEach(b -> sb.append(b.toString()).append("\n"));
+            bookings.forEach(b -> sb.append(b.toString()).append("\n"));
     writeToFile(sb.toString());
   }
 

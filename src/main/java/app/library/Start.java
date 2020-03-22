@@ -44,6 +44,22 @@ public class Start {
 
           case 3:
             flightController.searching();
+            StringBuilder se = new StringBuilder();
+            flightController.getAll().forEach(f -> {
+              se.append(f.getId());
+              se.append(",");
+              se.append(f.getFrom());
+              se.append(",");
+              se.append(f.getTo());
+              se.append(",");
+              se.append(f.getTime());
+              se.append(",");
+              se.append(f.getFreeSeats());
+              se.append(",");
+              se.append(f.getAllSeats());
+              se.append("\n");
+              flightController.writeToFile(se.toString());
+            });
             break;
 
           case 4:

@@ -1,6 +1,8 @@
-package app.controller;
+package app;
 
 import app.console.ConsoleMain;
+import app.controller.BookingController;
+import app.controller.FlightController;
 import app.entities.Booking;
 import app.entities.Flight;
 import app.entities.Person;

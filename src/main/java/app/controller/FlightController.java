@@ -28,7 +28,7 @@ public class FlightController {
 
   public String represent(Flight flight) { return flightService.represent(flight); }
 
-  public boolean after24hours(String a) { return flightService.after24hours(a); }
+  //public boolean after24hours(String a) { return flightService.after24hours(a); }
 
   public void writeToFile(String s) { flightService.writeToFile(s); }
 

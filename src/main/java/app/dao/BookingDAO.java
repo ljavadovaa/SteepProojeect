@@ -33,8 +33,8 @@ public class BookingDAO implements DAO<Booking> {
           String[] arrayF = arrayAll[2].split(" ");
 
           bookings.add(new Booking(Integer.parseInt(arrayID[2]), new Person(arrayP[1], arrayP[2])
-                  , new Flight(Integer.parseInt(arrayF[1]), arrayF[3], arrayF[5], arrayF[7],
-                  Integer.parseInt(arrayF[10]), Integer.parseInt(arrayF[10]) )));
+                  , new Flight(Integer.parseInt(arrayF[1]), arrayF[3], arrayF[5],String.format(arrayF[7] + " "+arrayF[8]),
+                  Integer.parseInt(arrayF[11]), Integer.parseInt(arrayF[11]) )));
 
         });
       } catch (IOException e) {

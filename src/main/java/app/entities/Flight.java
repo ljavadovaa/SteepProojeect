@@ -24,9 +24,6 @@ public class Flight {
     public int getAllSeats() { return allSeats; }
     public int getFreeSeats() { return freeSeats; }
 
-    public void setDate(String date) {
-      this.time = date;
-    }
     public void setFreeSeats(int freeSeats) {
       this.freeSeats = freeSeats;
     }

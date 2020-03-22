@@ -64,28 +64,10 @@ public class BookingService {
     console.printLn("\n");
   }
 
+
   public void resizeFreeSeat(Flight flight, int index) {
+    flight.setFreeSeats(flight.getFreeSeats() + index);
     List<Flight> flights = new ArrayList<>(flightDAO.getAll());
-    StringBuilder sb1 = new StringBuilder();
-    flights.forEach(f -> {
-      if (f.getId() == flight.getId()) {
-        int s = f.getFreeSeats() + index;
-        f.setFreeSeats(s);
-      }
-      sb1.append(f.getId());
-      sb1.append(",");
-      sb1.append(f.getFrom());
-      sb1.append(",");
-      sb1.append(f.getTo());
-      sb1.append(",");
-      sb1.append(f.getTime());
-      sb1.append(",");
-      sb1.append(f.getFreeSeats());
-      sb1.append(",");
-      sb1.append(f.getAllSeats());
-      sb1.append("\n");
-      flightService.writeToFile(sb1.toString());
-    });
   }
 
   public String represent(Booking booking) {
@@ -116,9 +98,6 @@ public class BookingService {
     console.printLn("ENTER YOUR SURNAME! ");
     String surName = console.readLn();
     resizeFreeSeat(filteredFlight, -1);
-    String dateTime = filteredFlight.getTime();
-    String date = dateTime.split(" ")[0];
-    filteredFlight.setDate(date);
     return new Booking(lastIndex, new Person(name, surName), filteredFlight);
   }
 

@@ -5,6 +5,7 @@ import app.dao.FlightDAO;
 import app.entities.Flight;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,13 +28,6 @@ public class FlightService {
     return flightDAO.read();
   }
 
-  public String printToBoardAll() {
-    List<Flight> flights = new ArrayList<>(getAll());
-    StringBuilder sb = new StringBuilder();
-    flights.stream().filter(f -> after24hours(f.getTime())).forEachOrdered(f -> sb.append(represent(f)).append("\n"));
-    return sb.toString();
-  }
-
   public String printTOBoardOne(int id) {
     return (getID(id) != null ? represent(getID(id)) : "Flight not found!") + "\n";
   }
@@ -43,12 +37,19 @@ public class FlightService {
             flight.getId(), flight.getFrom(), flight.getTo(), flight.getTime(), flight.getFreeSeats(), flight.getAllSeats());
   }
 
-  public boolean after24hours(String a) {
+  public String printToBoardAll() {
+    ArrayList<Flight> flights = new ArrayList<>();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-    LocalDateTime dateTime = LocalDateTime.parse(a, formatter);
-    LocalDateTime now = LocalDateTime.now();
-    LocalDateTime d1 = now.plusDays(1);
-    return d1.isBefore(dateTime);
+    LocalDate nextDay = LocalDate.now().plusDays(1);
+
+    for (Flight f : flightDAO.getAll()) {
+      LocalDate flightDate = LocalDate.parse(f.getTime(), formatter);
+      if (nextDay.getYear() == flightDate.getYear() && nextDay.getMonth() == flightDate.getMonth() && nextDay.getDayOfMonth() >= flightDate.getDayOfMonth())
+        flights.add(f);
+    }
+    StringBuilder sb = new StringBuilder();
+    flights.forEach(f-> sb.append(represent(f)).append("\n"));
+    return sb.toString();
   }
 
   public void writeToFile(String s) {

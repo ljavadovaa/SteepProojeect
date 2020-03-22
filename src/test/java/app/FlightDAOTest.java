@@ -1,4 +1,4 @@
-package app.controller;
+package app;
 
 import app.console.ConsoleMain;
 import app.dao.FlightDAO;

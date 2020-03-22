@@ -1,4 +1,4 @@
-package app.controller;
+package app;
 
 import app.console.ConsoleMain;
 import app.entities.Flight;
@@ -22,16 +22,16 @@ public class FlightServiceTest {
     flightService = new FlightService();
   }
 
-  @Test
-  void printToBoardAll() {
-    List<Flight> flights = flightService.getAll().stream().
-            filter(flight -> flightService.after24hours(flight.getTime())).collect(Collectors.toList());
-    StringBuilder sb = new StringBuilder();
-    flights.forEach(flight -> sb.append(flightService.represent(flight)).append("\n"));
-    String expected = sb.toString();
-    String actual = flightService.printToBoardAll();
-    assertEquals(expected,actual);
-  }
+//  @Test
+//  void printToBoardAll() {
+//    List<Flight> flights = flightService.getAll().stream().
+//            filter(flight -> flightService.after24hours(flight.getTime())).collect(Collectors.toList());
+//    StringBuilder sb = new StringBuilder();
+//    flights.forEach(flight -> sb.append(flightService.represent(flight)).append("\n"));
+//    String expected = sb.toString();
+//    String actual = flightService.printToBoardAll();
+//    assertEquals(expected,actual);
+//  }
 
   @Test
   void printTOBoardOne() {
@@ -48,13 +48,13 @@ public class FlightServiceTest {
     assertEquals(expected,actual);
   }
 
-  @Test
-  void after24hours() {
-    String time = "20/03/2020 23:59";
-    boolean expected = false;
-    boolean actual = flightService.after24hours(time);
-    assertEquals(expected,actual);
-  }
+//  @Test
+//  void after24hours() {
+//    String time = "20/03/2020 23:59";
+//    boolean expected = false;
+//    boolean actual = flightService.after24hours(time);
+//    assertEquals(expected,actual);
+//  }
 
   @Test
   void check_space() {

@@ -1,5 +1,7 @@
 package app.entities;
 
+import java.util.Objects;
+
 public class Flight {
     private int id;
     private String from;
@@ -28,10 +30,26 @@ public class Flight {
       this.freeSeats = freeSeats;
     }
 
-  @Override
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return id == flight.id &&
+                allSeats == flight.allSeats &&
+                freeSeats == flight.freeSeats &&
+                from.equals(flight.from) &&
+                to.equals(flight.to) &&
+                time.equals(flight.time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, from, to, time, allSeats, freeSeats);
+    }
+
+    @Override
     public String toString() {
         return String.format("ID: %d | %s to %s | %s | maxSeats: %d", id, from, to, time, allSeats);
     }
-
-
 }

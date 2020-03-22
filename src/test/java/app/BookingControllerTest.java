@@ -45,7 +45,7 @@ class BookingControllerTest {
     bookings.add(new Booking(1273,new Person("Leman","Jav"),
             new Flight(49,"Kiev","Baku","19/03/2020",25,25)));
     bookingController.getAll().addAll(bookings);
-    int expected = 1282;
+    int expected = 1352;
     int actual = bookingController.getAll().size();
     assertEquals(expected,actual);
   }
@@ -63,15 +63,15 @@ class BookingControllerTest {
         String[] arrayF = arrayAll[2].split(" ");
 
         bookings.add(new Booking(Integer.parseInt(arrayID[2]), new Person(arrayP[1], arrayP[2])
-                , new Flight(Integer.parseInt(arrayF[1]), arrayF[3], arrayF[5], arrayF[7],
-                Integer.parseInt(arrayF[10]), Integer.parseInt(arrayF[10]) )));
+                , new Flight(Integer.parseInt(arrayF[1]), arrayF[3], arrayF[5], String.format(arrayF[7] + " " + arrayF[8]),
+                Integer.parseInt(arrayF[11]), Integer.parseInt(arrayF[11]) )));
 
       });
     } catch (IOException e) {
       console.printLn("Error about reading from Bookings.txt");
     }
 
-    int expected = 1282;
+    int expected = 1352;
     int actual = bookings.size();
     assertEquals(expected,actual);
   }

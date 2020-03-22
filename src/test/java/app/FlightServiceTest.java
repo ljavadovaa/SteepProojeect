@@ -22,17 +22,6 @@ public class FlightServiceTest {
     flightService = new FlightService();
   }
 
-//  @Test
-//  void printToBoardAll() {
-//    List<Flight> flights = flightService.getAll().stream().
-//            filter(flight -> flightService.after24hours(flight.getTime())).collect(Collectors.toList());
-//    StringBuilder sb = new StringBuilder();
-//    flights.forEach(flight -> sb.append(flightService.represent(flight)).append("\n"));
-//    String expected = sb.toString();
-//    String actual = flightService.printToBoardAll();
-//    assertEquals(expected,actual);
-//  }
-
   @Test
   void printTOBoardOne() {
     String expected = flightService.represent(flightService.getID(50))+"\n";
@@ -48,14 +37,6 @@ public class FlightServiceTest {
     assertEquals(expected,actual);
   }
 
-//  @Test
-//  void after24hours() {
-//    String time = "20/03/2020 23:59";
-//    boolean expected = false;
-//    boolean actual = flightService.after24hours(time);
-//    assertEquals(expected,actual);
-//  }
-
   @Test
   void check_space() {
     boolean expected = false;
@@ -65,7 +46,7 @@ public class FlightServiceTest {
 
   @Test
   void searchByDestination() {
-    int expected = 3;
+    int expected = 5;
     int actual = flightService.searchByDestination("Chicago".toLowerCase()).size();
     assertEquals(expected,actual);
   }
@@ -73,7 +54,7 @@ public class FlightServiceTest {
   @Test
   void searchByTime() {
     int expected = 1;
-    int actual = flightService.searchByTime(flightService.searchByDestination("Chicago".toLowerCase()),"21/03/2020").size();
+    int actual = flightService.searchByTime(flightService.searchByDestination("Chicago".toLowerCase()),"24/03/2020").size();
     assertEquals(expected,actual);
   }
 
@@ -81,7 +62,7 @@ public class FlightServiceTest {
   void searchByTickets() {
     int expected = 1;
     int actual = flightService.searchByTickets(flightService.
-            searchByTime(flightService.searchByDestination("Chicago".toLowerCase()),"21/03/2020"),2).size();
+            searchByTime(flightService.searchByDestination("Chicago".toLowerCase()),"24/03/2020"),10).size();
     assertEquals(expected,actual);
   }
 }
